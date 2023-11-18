@@ -1,29 +1,23 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include "Fichamento.hpp"
 #include "Livro.hpp"
 
 using namespace std;
 
-void Cadastro;
+void Cadastro();
+
+Livro _livro;
 
 int main(){
-   
-    Fichamento fichamento;
-    Livro livro;
-    livro.setTitulo( "titulo" );
-    string autor;
-    string titulo;
-    string genero;
-
-    bool operacao;
-
-    int opcao;
     
+    vector<string> livro;
+    bool operacao;
+    int opcao;
     cout << "Bem vindo!" << endl;
     while(!operacao){
         cout << "Escolha uma opção!" << endl;
-        
         cout << "Opção 1: Adicionar cadastro" << endl;
         cout << "Opção 2: Listar cadastros" << endl;
         cout << "Opção 3: Pesquisar cadastro" << endl;
@@ -31,14 +25,16 @@ int main(){
         cout << "Opção 5: Excluir cadastro" << endl;
         cout << "Opção 0: Sair" << endl;
         cin >> opcao;
-
         switch(opcao){
             case 1:
                 cout << "1";
-                    
+                Cadastro();
                 break;
             case 2:
                 cout << "2";
+                for (auto l: livro){
+                    cout << l << endl;
+                }
                 break;
             case 3:
                 cout << "3";
@@ -56,86 +52,22 @@ int main(){
                 cout << "Selecione alguma opção acima!!!";
         }
     }
-    
-    /*cin >> opcao2;
-    cin >> opcao3;
-    cin >> opcao4;
-    cin >> opcao5;*/
-
-    /*switch(operacao){
-        case '1':
-        cout << "Digite as seguintes infornmações: " << endl;
-        cout << "Titulo: " << endl;
-        cout << "Genero: " << endl;
-        cout << "Autor: " << endl;
-
-       
-    } */
-    /*
-    while(operacao){
-        
-
-        if(operacao == opcao1){
-            cout << "Digite o titulo: " << endl;
-            cin >> titulo;
-
-            cout << "Digite o gênero: ";
-            cin >> genero;
-
-            cout << "Digite o autor: ";
-            cin >> autor;
-            
-
-            if(opcao1 == true){
-
-                 cout << "Cadastro salvo com sucesso!" << endl;
-                 break;
-            }
-            
-
-        }
-
-        if(operacao == opcao2){
-            //Print do cadastro feito
-            operacao = false;
-
-        }
-
-        if(operacao == opcao3){
-            //Pesquisar o cadastro
-            operacao = false;
-
-        }
-
-        if(operacao == opcao4){
-            //Editar
-            operacao = false;
-
-        }
-
-        if(operacao == opcao5){
-            //Excluir
-            operacao = false;
-
-        }
-
-    }  */
-
-    return 0;
-    
+    return 0;    
 }
 
-void Cadastro(opcao){
-
-     
+void Cadastro(){
+    string titulo;
+    string autor;
+    string genero;
     cout << "Digite o titulo: " << endl;
-        cin >> titulo;
+    cin >> titulo;
+    cout << "Digite o autor:" << endl;
+    cin >> autor;
+    cout << "Digite o genêro:";
+    cin >> genero;
 
-    cout << "Digite o gênero: ";
-        cin >> genero;
-
-    cout << "Digite o autor: ";
-        cin >> autor;
-
-
+    _livro.setAutor(autor);
+    _livro.setTitulo(titulo);
+    _livro.setGenero(genero);
 }
+

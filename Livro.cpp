@@ -25,7 +25,7 @@ void Livro::setId(int i){
 int Livro::getId(){
     return id;
 }
-    void Livro::setAutor(string aut){
+void Livro::setAutor(string aut){
     autor = aut;
 }
 string Livro::getAutor(){

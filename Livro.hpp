@@ -12,6 +12,9 @@ using namespace std;
 class Livro{
 
     private:
+
+        vector<string> livro;
+
         string titulo;
         string genero;
         string autor;
